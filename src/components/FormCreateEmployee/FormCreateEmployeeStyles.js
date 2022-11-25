@@ -1,34 +1,49 @@
 import styled from 'styled-components';
-import theme from '../../utils/theme';
+import { theme } from '../../themes';
 
 export const Container = styled.div`
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 20px;
 `;
 
 export const Title = styled.h1`
   font-size: 45px;
-  color: ${theme.color.secondary};
   padding: 20px;
 `;
 
 export const WrapperInput = styled.div`
-  background: ${theme.color.primary};
+  border: 1px solid #252525;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 30px 20px;
   margin-bottom: 10px;
   gap: 25px;
   border-radius: 10px;
-  height: 100px;
-  box-shadow: 7px 7px 14px #bdbdbd, -7px -7px 14px #ffffff;
+  ${theme.medias.tablet} {
+    flex-direction: column;
+  }
 `;
 
 export const WrapperAddress = styled.div`
-  background: #ffffff;
+  color: #${theme.colors.txtColor};
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 10px;
-  box-shadow: 7px 7px 14px #bdbdbd, -7px -7px 14px #ffffff;
+  border: 1px solid #252525;
+`;
+
+export const ButtonForm = styled.button`
+  background: rgb(246, 188, 36);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+
 `;

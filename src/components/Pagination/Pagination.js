@@ -26,15 +26,6 @@ const Pagination = ({
             handleClick={() => handlePage(index)}
             nameButton={index + 1}
           />
-          // <button
-          //   key={index}
-          //   className={`page-btn ${
-          //     index === numberOfPage ? 'active-btn' : null
-          //   }`}
-          //   onClick={() => handlePage(index)}
-          // >
-          //   {index + 1}
-          // </button>
         );
       })}
       <Button
@@ -44,13 +35,6 @@ const Pagination = ({
         numberOfPage={numberOfPage}
         isDisabled={numberOfPage >= listEmployeesPerPage.length - 1}
       />
-      {/* <button
-        className="next-btn"
-        disabled={numberOfPage >= listEmployeesPerPage.length - 1}
-        onClick={handleNextPage}
-      >
-        next
-      </button> */}
     </div>
   );
 };

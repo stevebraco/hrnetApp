@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContainerGroupStyles, Input } from './GroupInputStyles';
+import { ContainerGroupStyles, Input, Label } from './GroupInputStyles';
 
 const GroupInput = ({ inputName, typeNumber }) => {
   return (
     <ContainerGroupStyles>
-      <label htmlFor={inputName.toLowerCase().replaceAll(' ', '')}>
+      <Label htmlFor={inputName.toLowerCase().replaceAll(' ', '')}>
         {inputName}
-      </label>
+      </Label>
       <Input
         type={typeNumber ? 'number' : 'text'}
         id={inputName.toLowerCase().replaceAll(' ', '')}

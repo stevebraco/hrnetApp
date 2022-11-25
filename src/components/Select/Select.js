@@ -1,11 +1,12 @@
 import React from 'react';
 import { showEntries } from '../../utils/paginate';
+import { Select as SelectStyles } from './SelectStyles';
 
 const Select = ({ handleChange, showPageEntries }) => {
   return (
     <div>
       Show
-      <select
+      <SelectStyles
         name="showEntries"
         onChange={handleChange}
         value={parseInt(showPageEntries)}
@@ -15,7 +16,7 @@ const Select = ({ handleChange, showPageEntries }) => {
             {entries}
           </option>
         ))}
-      </select>
+      </SelectStyles>
       entries
     </div>
   );

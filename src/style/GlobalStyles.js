@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from '../utils/theme';
+import { theme } from '../themes';
 
 const GlobalStyles = createGlobalStyle`
 html,
@@ -66,21 +66,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-   background: ${theme.color.bgPrimary};
-   color: ${theme.color.secondary};
+   color: ${theme.colors.txtColor};
+   background: ${theme.colors.bgBodyColor};
    max-width: 1250px;
    margin: 0 auto;
 }
 
 label {
   margin-bottom: 5px;
-  color: ${theme.color.secondary};
   display: inline-block;
 }
 
 h2 {
   font-size: 30px;
-  color: #212121;
   padding-bottom: 20px;}
 
 .btn-container {
@@ -91,6 +89,7 @@ h2 {
 
   td {
     padding: 10px;
+    text-align: center;
   }
 
   

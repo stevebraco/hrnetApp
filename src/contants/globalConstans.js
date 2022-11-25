@@ -1,0 +1,7 @@
+export const CHANGE_STATE = 'CHANGE_STATE';
+export const CHANGE_DEPARTEMENT = 'CHANGE_DEPARTEMENT';
+export const CHANGE_BIRTH = 'CHANGE_BIRTH';
+export const CHANGE_DATE = 'CHANGE_DATE';
+export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';

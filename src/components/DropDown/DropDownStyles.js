@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const List = styled.ul`
   max-height: 200px;
   overflow: auto;
-  background: #ffffff;
   color: black;
 `;
 

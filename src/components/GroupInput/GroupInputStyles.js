@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../utils/theme';
+import { theme } from '../../themes';
 
 export const ContainerGroupStyles = styled.div`
   width: 100%;
@@ -7,12 +7,19 @@ export const ContainerGroupStyles = styled.div`
   margin-bottom: 10px;
 `;
 
+export const Label = styled.label`
+  font-weight: bold;
+  padding-bottom: 8px;
+  color: ${theme.colors.txtColor};
+`;
+
 export const Input = styled.input`
-  outline: none;
-  border: none;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 7px;
-  background: ${theme.color.bgPrimary};
   width: 100%;
+  background: ${theme.colors.bgPrimaryColor};
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-family: Poppins, sans-serif;
+  border-radius: 8px;
 `;

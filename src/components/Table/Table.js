@@ -3,10 +3,15 @@ import TableBody from '../TableBody/TableBody';
 import TableHeader from '../TableHeader/TableHeader';
 import { TableStyles } from './TableStyles';
 
-const Table = ({ listEmployeesPerPage, numberOfPage, handleSort }) => {
+const Table = ({
+  listEmployeesPerPage,
+  numberOfPage,
+  handleSort,
+  handleSelected,
+}) => {
   return (
     <TableStyles>
-      <TableHeader handleSort={handleSort} />
+      <TableHeader handleSort={handleSort} handleSelected={handleSelected} />
       <TableBody
         listEmployeesPerPage={listEmployeesPerPage}
         numberOfPage={numberOfPage}

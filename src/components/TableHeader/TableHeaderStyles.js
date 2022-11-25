@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { theme } from '../../themes';
 
 export const THeadStyles = styled.thead`
   height: 50px;
-  background: black;
+  background: ${theme.colors.bgPrimaryColor};
+  cursor: pointer;
 `;

@@ -1,11 +1,17 @@
 import styled from 'styled-components';
-import theme from '../../utils/theme';
+import { theme } from '../../themes';
 
 const GroupInputDatePickerStyles = styled.div`
   width: 100%;
   input {
-    ${theme.inputStyles}
     width: 100%;
+    background: ${theme.colors.bgPrimaryColor};
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-family: Poppins, sans-serif;
+    border-radius: 8px;
   }
 `;
 

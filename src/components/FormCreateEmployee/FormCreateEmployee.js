@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GroupInput from '../GroupInput/GroupInput';
 
 import {
@@ -6,79 +6,34 @@ import {
   Title,
   WrapperAddress,
   WrapperInput,
+  ButtonForm,
 } from './FormCreateEmployeeStyles';
-import { states } from '../../data/dataState';
-import { department } from '../../data/dataDepartment';
-import { changeNameKeys } from '../../utils/helpers';
 import GroupInputDatePicker from '../GroupInputDatePicker/GroupInputDatePicker';
 import GroupDropdown from '../GroupDropdown/GroupDropdown';
-import OpenModal from '../Modal/Modal';
+import { Modal } from 'steve-modal';
+import { theme } from '../../themes';
+import { useGlobalContext } from '../../context/globalContext';
 
 const FormCreateEmployee = () => {
-  const newStates = changeNameKeys(states);
-  const newDepartments = changeNameKeys(department);
-  const [startDate, setStartDate] = useState(null);
-  const [birth, setBirth] = useState(null);
-  const [selectedState, setSelectedState] = useState(newStates[0].value);
-  const [selectedDepartments, setSelectedDepartments] = useState(
-    newDepartments[0].label
-  );
-
-  const [listEmployees, setListEmployees] = useState(
-    JSON.parse(localStorage.getItem('listEmployees')) ?? []
-  );
-
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  const _onSelect = (option) => {
-    console.log(option);
-    setSelectedState(option.value);
-  };
-
-  const _onSelectDep = (option) => {
-    setSelectedDepartments(option.label);
-  };
-
-  useEffect(() => {
-    localStorage.setItem('listEmployees', JSON.stringify(listEmployees));
-  }, [listEmployees]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const [firstName, lastName, dateOfBirth, startDate, street, city, zipcode] =
-      e.target;
-
-    const newEmployee = {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dateOfBirth: dateOfBirth.value,
-      startDate: startDate.value,
-      street: street.value,
-      city: city.value,
-      state: selectedState,
-      zipCode: zipcode.value,
-      department: selectedDepartments,
-    };
-
-    setListEmployees((prevListEmployees) => [
-      ...prevListEmployees,
-      newEmployee,
-    ]);
-    openModal();
-  };
+  const {
+    newStates,
+    selectedState,
+    onSelectState,
+    newDepartments,
+    selectedDepartments,
+    onSelectDepartement,
+    birth,
+    onSelectBirth,
+    startDate,
+    onSelectDate,
+    handleSubmit,
+    isOpenModal,
+    closeModal,
+  } = useGlobalContext();
 
   return (
     <Container>
       <Title>Create Employee</Title>
-
       <form onSubmit={handleSubmit}>
         <WrapperInput>
           <GroupInput inputName="First Name" />
@@ -88,12 +43,12 @@ const FormCreateEmployee = () => {
           <GroupInputDatePicker
             inputName="Birth"
             state={birth}
-            setState={setBirth}
+            setState={onSelectBirth}
           />
           <GroupInputDatePicker
             inputName="Start Date"
             state={startDate}
-            setState={setStartDate}
+            setState={onSelectDate}
           />
         </WrapperInput>
         <WrapperAddress>
@@ -103,7 +58,7 @@ const FormCreateEmployee = () => {
           <GroupDropdown
             name="State"
             options={newStates}
-            onChange={_onSelect}
+            onChange={onSelectState}
             value={selectedState}
           />
 
@@ -113,14 +68,21 @@ const FormCreateEmployee = () => {
           <GroupDropdown
             name="Department"
             options={newDepartments}
-            onChange={_onSelectDep}
+            onChange={onSelectDepartement}
             value={selectedDepartments}
           />
         </WrapperAddress>
-
-        <button>Save</button>
+        <ButtonForm>Save</ButtonForm>
       </form>
-      <OpenModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+      <Modal
+        width="500px"
+        height="200px"
+        isOpen={isOpenModal}
+        onRequestClose={closeModal}
+        backgroundModal={theme.colors.bgPrimaryColor}
+      >
+        <p>Employee Created!</p>
+      </Modal>
     </Container>
   );
 };

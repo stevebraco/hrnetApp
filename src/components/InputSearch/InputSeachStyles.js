@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 const InputStyles = styled.input`
-  border: 1px solid #cfcfcf;
+  background: #22232f;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-family: Poppins, sans-serif;
   border-radius: 8px;
-  outline-color: #2980b9;
-  padding: 7px;
+  margin-left: 5px;
+  display: inline-block;
 `;
 
 export default InputStyles;

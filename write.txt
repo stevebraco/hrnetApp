@@ -1,0 +1,53 @@
+// <div>
+    //   <Title>Create Employee</Title>
+    //   <section>
+    //     <h3>Flat Array Example </h3>
+    //     <Dropdown
+    //       options={states}
+    //       onChange={_onSelect}
+    //       value={defaultOption}
+    //       placeholder="Select an option"
+    //     />
+    //   </section>
+
+    //   <form>
+    //     <WrapperInput>
+    //       <GroupInput name="First Name" />
+    //       <GroupInput name="Last Name" />
+    //     </WrapperInput>
+    //     <WrapperInput>
+    //       <div>
+    //         <label htmlFor="dateOfBirth">Date of Birth</label>
+    //         <DatePicker
+    //           id="dateOfBirth"
+    //           selected={birth}
+    //           onChange={(birth) => setBirth(birth)}
+    //         />
+    //       </div>
+    //       <div>
+    //         <label htmlFor="startDate">Start Date</label>
+    //         <DatePicker
+    //           id="startDate"
+    //           selected={startDate}
+    //           onChange={(date) => setStartDate(date)}
+    //         />
+    //       </div>
+    //     </WrapperInput>
+    //     <div>
+    //       <h2>Address</h2>
+    //       <GroupInput name="Street" />
+    //       <GroupInput name="City" />
+    //       <DropDown
+    //         isDropDownOpen={isDropDownOpen}
+    //         dropDownFalse={dropDownFalse}
+    //         dropDownToggle={dropDownToggle}
+    //         data={states}
+    //       />
+    //       <GroupInput name="Zip Code" />
+    //     </div>
+    //     <div>
+    //       <h2>Department</h2>
+    //       {/* <DropDown data={department} /> */}
+    //     </div>
+    //   </form>
+    // </div>
