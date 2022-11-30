@@ -5,11 +5,9 @@ const Button = ({
   nameButton,
   handleClick,
   isDisabled,
-  primary,
   index,
   numberOfPage,
 }) => {
-  console.log(primary);
   return (
     <ButtonStyles
       primary={index === numberOfPage}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useForm = (selectedState, selectedDepartments) => {
   const [listEmployees, setListEmployees] = useState(
-    JSON.parse(localStorage.getItem('listEmployees')) ?? []
+    () => JSON.parse(localStorage.getItem('listEmployees')) ?? []
   );
   const [startDate, setStartDate] = useState(null);
   const [birth, setBirth] = useState(null);
@@ -36,16 +36,15 @@ const useForm = (selectedState, selectedDepartments) => {
       zipCode: zipcode.value,
       department: selectedDepartments,
     };
-    console.log(newEmployee);
 
     setListEmployees((prevListEmployees) => [
       ...prevListEmployees,
       newEmployee,
     ]);
     openModal();
+    e.target.reset();
   };
   return {
-    listEmployees,
     handleSubmit,
     startDate,
     setStartDate,

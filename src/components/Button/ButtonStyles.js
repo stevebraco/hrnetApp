@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { theme } from '../../themes';
 
 const ButtonStyles = styled.button`
-  background: ${(props) =>
-    props.primary ? theme.colors.bgPrimaryColor : 'black'};
-  color: ${(props) => (!props.primary ? 'white' : 'white')};
+  background: ${({ primary }) =>
+    primary ? theme.colors.bgPrimaryColor : 'black'};
+  color: ${({ primary }) => (!primary ? 'white' : 'white')};
   border: 1px solid #252525;
   font-weight: bold;
   text-transform: capitalize;

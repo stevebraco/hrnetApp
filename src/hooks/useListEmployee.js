@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { paginate } from '../utils/paginate';
 import { filterEmployees } from '../utils/table';
-import { useGlobalContext } from '../context/globalContext';
+// import { useGlobalContext } from '../context/globalContext';
 
 const useListEmployee = () => {
-  const { listEmployees: employees } = useGlobalContext();
+  const [storageEmployees] = useState(
+    () => JSON.parse(localStorage.getItem('listEmployees')) ?? []
+  );
 
   const [showPageEntries, setShowPageEntries] = useState(10);
-  const listEmployees = [...employees].sort((a, b) =>
+  const listEmployees = [...storageEmployees].sort((a, b) =>
     a.firstName.localeCompare(b.firstName)
   );
 
@@ -137,6 +139,7 @@ const useListEmployee = () => {
     listEmployees,
     listEmployeesPerPage,
     showPageEntries,
+    isSort,
   };
 };
 

@@ -21,6 +21,7 @@ const CurrentEmployeePage = () => {
     listEmployeesPerPage,
     showPageEntries,
     handleSelected,
+    isSort,
   } = useListEmployee();
 
   const { numberOfPage, currentPage, columnPage } = pages;
@@ -37,6 +38,7 @@ const CurrentEmployeePage = () => {
           numberOfPage={numberOfPage}
           handleSort={handleSort}
           handleSelected={handleSelected}
+          isSort={isSort}
         />
       </WrapperTable>
       <WrapperFlex>

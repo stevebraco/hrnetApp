@@ -35,7 +35,7 @@ export const WrapperAddress = styled.div`
 `;
 
 export const ButtonForm = styled.button`
-  background: rgb(246, 188, 36);
+  background: #f6bc24;
   color: white;
   border: none;
   border-radius: 8px;

@@ -8,10 +8,15 @@ const Table = ({
   numberOfPage,
   handleSort,
   handleSelected,
+  isSort,
 }) => {
   return (
     <TableStyles>
-      <TableHeader handleSort={handleSort} handleSelected={handleSelected} />
+      <TableHeader
+        isSort={isSort}
+        handleSort={handleSort}
+        handleSelected={handleSelected}
+      />
       <TableBody
         listEmployeesPerPage={listEmployeesPerPage}
         numberOfPage={numberOfPage}

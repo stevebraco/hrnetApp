@@ -12,24 +12,23 @@ import GroupInputDatePicker from '../GroupInputDatePicker/GroupInputDatePicker';
 import GroupDropdown from '../GroupDropdown/GroupDropdown';
 import { Modal } from 'steve-modal';
 import { theme } from '../../themes';
-import { useGlobalContext } from '../../context/globalContext';
+import useForm from '../../hooks/useForm';
+import useStateForm from '../../hooks/useStateForm';
+import useDepartmentForm from '../../hooks/useDepartmentForm';
 
 const FormCreateEmployee = () => {
+  const { selectedState, newStates, onSelect } = useStateForm();
+  const { selectedDepartments, onSelectDep, newDepartments } =
+    useDepartmentForm();
   const {
-    newStates,
-    selectedState,
-    onSelectState,
-    newDepartments,
-    selectedDepartments,
-    onSelectDepartement,
-    birth,
-    onSelectBirth,
-    startDate,
-    onSelectDate,
     handleSubmit,
-    isOpenModal,
+    startDate,
+    setStartDate,
+    birth,
+    setBirth,
+    modalIsOpen,
     closeModal,
-  } = useGlobalContext();
+  } = useForm(selectedState, selectedDepartments);
 
   return (
     <Container>
@@ -43,12 +42,12 @@ const FormCreateEmployee = () => {
           <GroupInputDatePicker
             inputName="Birth"
             state={birth}
-            setState={onSelectBirth}
+            setState={setBirth}
           />
           <GroupInputDatePicker
             inputName="Start Date"
             state={startDate}
-            setState={onSelectDate}
+            setState={setStartDate}
           />
         </WrapperInput>
         <WrapperAddress>
@@ -58,7 +57,7 @@ const FormCreateEmployee = () => {
           <GroupDropdown
             name="State"
             options={newStates}
-            onChange={onSelectState}
+            onChange={onSelect}
             value={selectedState}
           />
 
@@ -68,7 +67,7 @@ const FormCreateEmployee = () => {
           <GroupDropdown
             name="Department"
             options={newDepartments}
-            onChange={onSelectDepartement}
+            onChange={onSelectDep}
             value={selectedDepartments}
           />
         </WrapperAddress>
@@ -77,7 +76,7 @@ const FormCreateEmployee = () => {
       <Modal
         width="500px"
         height="200px"
-        isOpen={isOpenModal}
+        isOpen={modalIsOpen}
         onRequestClose={closeModal}
         backgroundModal={theme.colors.bgPrimaryColor}
       >
