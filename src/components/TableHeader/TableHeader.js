@@ -1,50 +1,8 @@
 /* eslint-disable indent */
 import React from 'react';
-import styled from 'styled-components';
 import { headers } from '../../utils/table';
-import { THeadStyles } from './TableHeaderStyles';
+import { Icons, Th, THeadStyles, WrapperTh } from './TableHeaderStyles';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-
-const Th = styled.th`
-  color: ${({ isSelected }) => (isSelected ? '#f6bc24' : '#ffffff')};
-  text-transform: capitalize;
-`;
-
-const Icons = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  .iconUp {
-    color: ${({ isSelected, isDescending }) => {
-      if (isSelected) {
-        if (isDescending) {
-          return '#ffffff';
-        } else {
-          return 'rgb(246, 188, 36)';
-        }
-      }
-    }};
-  }
-
-  .iconDown {
-    color: ${({ isSelected, isDescending }) => {
-      if (isSelected) {
-        if (isDescending) {
-          return 'rgb(246, 188, 36)';
-        } else {
-          return '#ffffff';
-        }
-      }
-    }};
-  }
-`;
-
-const WrapperTh = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-`;
 
 const TableHeader = ({ handleSort, handleSelected, isSort }) => {
   return (
